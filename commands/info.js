@@ -17,14 +17,11 @@ exports.help = (richEmbed, msg) => {
   - twitter
   - film + *your movie*
   - crypto + *your cryptocurrecy*
-  - carbon
   `
 
   const message = richEmbed.setTitle(`:fire: **yo i'm darnell** :fire:`)
                            .setImage('https://imgur.com/fBidC4N.jpg')
-                           .setDescription(description)
-                           .addBlankField()
-                           .addField('darnell +', commands)
+                           .addField('commands', commands)
                            .setColor('#ff2681')
   msg.channel.send(message)
 }
