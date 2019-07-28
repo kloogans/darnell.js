@@ -1,5 +1,5 @@
 require('dotenv').config()
-const token = 'NjAyOTQ4MDk0MDYxMTgyOTc3.XT04sw.ZCtGJJVqYoHVLwk3mPw3VWhaHOc',
+const token = process.env.DISCORD_TOKEN,
       getMedia = require('./commands/getMedia'),
       crypto = require('./commands/crypto'),
       films = require('./commands/films'),
@@ -9,7 +9,7 @@ const token = 'NjAyOTQ4MDk0MDYxMTgyOTc3.XT04sw.ZCtGJJVqYoHVLwk3mPw3VWhaHOc',
       fetch = require('node-fetch'),
       Discord = require('discord.js'),
       client = new Discord.Client(),
-      movieKey = '360827b4'
+      movieKey = process.env.FILM_TOKEN
       prefix = 'darnell '
 
 let emojis
