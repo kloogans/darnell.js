@@ -6,54 +6,30 @@ const token = process.env.DISCORD_TOKEN,
       jokes = require('./commands/jokes'),
       vote = require('./commands/vote'),
       info = require('./commands/info'),
-      fetch = require('node-fetch'),
       Discord = require('discord.js'),
+      fetch = require('node-fetch'),
       client = new Discord.Client(),
-      movieKey = process.env.FILM_TOKEN
+      movieKey = process.env.FILM_TOKEN,
       prefix = 'darnell '
 
-let emojis
-
-setTimeout(() => {
-  emojis = {
-    rotten: (client.emojis.get('604098654445502472')).toString(),
-    metacritic: (client.emojis.get('604099414017048683')).toString(),
-    imdb: (client.emojis.get('604100171130994701')).toString()
-  }
-}, 3000)
-
 client.login(token)
-client.on('ready', () => console.log('working'))
+client.on('ready', () => console.log('running'))
 client.on('message', msg => {
   let message = msg.content.toLowerCase(),
       command = message.replace('darnell ', ''),
+      splitMessage = command.trim().split(' '),
       richEmbed = new Discord.RichEmbed()
 
-  if (command.startsWith('crypto')) {
-    const splitCommand = command.trim().split(' ')
-    crypto.fetchCryptoPrice(richEmbed, msg, splitCommand[1])
-  } else if (command.startsWith('film')) {
-    let splitMessage = message.trim().split(' '),
-        film = splitMessage.slice(2, splitMessage.length).join('-')
-    films.fetchFilmData(richEmbed, msg, film, movieKey, emojis)
-  } else if (command.startsWith('vote')) {
-    vote.handleVote(richEmbed, msg, command)
-  } else if (command === 'cat fact') {
-    getMedia.fetchCatFact(msg)
-  } else if (command === 'dad joke') {
-    jokes.fetchDadJoke(msg)
-  } else if (command === 'dank meme') {
-    getMedia.fetchRedditDankMeme(richEmbed, msg)
-  } else if (command === 'twitter') {
-    getMedia.fetchRedditWPT(richEmbed, msg)
-  } else if (command === 'help') {
-    info.help(richEmbed, msg)
-  } else if (command === 'version') {
-    const version = richEmbed.setDescription('v' + process.env.VERSION).setColor('#ff7753')
-    msg.channel.send(version)
-  } else if (command === 'cocaine') {
-    msg.channel.send('https://tenor.com/view/thad-castle-blue-mountain-state-alan-ritchson-cocaine-gif-14605274')
-  } else {
-    null
-  }
+  if (command.startsWith('film'))
+    films.fetchFilmData(client, richEmbed, msg, splitMessage, movieKey)
+
+  if (command.startsWith('crypto'))
+    crypto.fetchCryptoPrice(richEmbed, msg, splitMessage[1])
+
+  if (command.startsWith('vote')) vote.handleVote(richEmbed, msg, command)
+  if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
+  if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
+  if (command === 'cat facts') getMedia.fetchCatFact(msg)
+  if (command === 'dad joke') jokes.fetchDadJoke(msg)
+  if (command === 'help') info.help(richEmbed, msg)
 })

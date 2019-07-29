@@ -1,11 +1,17 @@
 const fetch = require('node-fetch')
 
-exports.fetchFilmData = async (richEmbed, msg, film, movieKey, emojis) => {
-  const url = `http://www.omdbapi.com/?apikey=${movieKey}&t=${film}`,
+exports.fetchFilmData = async (client, richEmbed, msg, film, movieKey) => {
+  const emojis = {
+    rotten: (client.emojis.get('604098654445502472')).toString(),
+    metacritic: (client.emojis.get('604099414017048683')).toString(),
+    imdb: (client.emojis.get('604100171130994701')).toString()
+  }
+  const url = `http://www.omdbapi.com/?apikey=${movieKey}&t=${film.slice(1, film.length).join('-')}`,
         data = await fetch(url),
         json = await data.json()
+        
   try {
-    if (json && json.Title) {
+    if (json) {
       let emojiArr = [emojis.rotten, emojis.metacritic, emojis.imdb],
           ratings
       if (json.Ratings.length != 3) {

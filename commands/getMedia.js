@@ -45,7 +45,7 @@ exports.fetchCatFact = async msg => {
     if (json) {
       msg.channel.send(json.data[0].fact)
     } else {
-      msg.channel.send('Something went wrong, try again,')
+      msg.channel.send('Something went wrong, try again.')
     }
   } catch(e) {
     console.error(e)
