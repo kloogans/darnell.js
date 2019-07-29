@@ -24,6 +24,7 @@ exports.fetchFilmData = async (richEmbed, msg, film, movieKey, emojis) => {
       `
       const message = richEmbed.addField(json.Title, details)
                                .setImage(json.Poster)
+                               .setThumbnail('https://imgur.com/F3COVih.png')
                                .setColor('#6e6fff')
       msg.channel.send(message)
     } else {

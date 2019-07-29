@@ -48,6 +48,9 @@ client.on('message', msg => {
     getMedia.fetchRedditWPT(richEmbed, msg)
   } else if (command === 'help') {
     info.help(richEmbed, msg)
+  } else if (command === 'version') {
+    const version = richEmbed.setDescription('v' + process.env.VERSION).setColor('#ff7753')
+    msg.channel.send(version)
   } else if (command === 'cocaine') {
     msg.channel.send('https://tenor.com/view/thad-castle-blue-mountain-state-alan-ritchson-cocaine-gif-14605274')
   } else {
