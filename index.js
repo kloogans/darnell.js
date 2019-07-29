@@ -16,20 +16,22 @@ client.login(token)
 client.on('ready', () => console.log('running'))
 client.on('message', msg => {
   let message = msg.content.toLowerCase(),
-      command = message.replace('darnell ', ''),
-      splitMessage = command.trim().split(' '),
       richEmbed = new Discord.RichEmbed()
+  if (message.startsWith('darnell ')) {
+    const command = message.replace('darnell ', ''),
+        splitMessage = command.trim().split(' ')
+        
+    if (command.startsWith('film'))
+      films.fetchFilmData(client, richEmbed, msg, splitMessage, movieKey)
 
-  if (command.startsWith('film'))
-    films.fetchFilmData(client, richEmbed, msg, splitMessage, movieKey)
+    if (command.startsWith('crypto'))
+      crypto.fetchCryptoPrice(richEmbed, msg, splitMessage[1])
 
-  if (command.startsWith('crypto'))
-    crypto.fetchCryptoPrice(richEmbed, msg, splitMessage[1])
-
-  if (command.startsWith('vote')) vote.handleVote(richEmbed, msg, command)
-  if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
-  if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
-  if (command === 'cat facts') getMedia.fetchCatFact(msg)
-  if (command === 'dad joke') jokes.fetchDadJoke(msg)
-  if (command === 'help') info.help(richEmbed, msg)
+    if (command.startsWith('vote')) vote.handleVote(richEmbed, msg, command)
+    if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
+    if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
+    if (command === 'cat facts') getMedia.fetchCatFact(msg)
+    if (command === 'dad joke') jokes.fetchDadJoke(msg)
+    if (command === 'help') info.help(richEmbed, msg)
+  }
 })
