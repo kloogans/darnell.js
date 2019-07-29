@@ -9,18 +9,23 @@ const token = process.env.DISCORD_TOKEN,
       Discord = require('discord.js'),
       fetch = require('node-fetch'),
       client = new Discord.Client(),
-      movieKey = process.env.FILM_TOKEN,
-      prefix = 'darnell '
+      movieKey = process.env.FILM_TOKEN
 
 client.login(token)
 client.on('ready', () => console.log('running'))
 client.on('message', msg => {
   let message = msg.content.toLowerCase(),
-      richEmbed = new Discord.RichEmbed()
-  if (message.startsWith('darnell ')) {
-    const command = message.replace('darnell ', ''),
+      richEmbed = new Discord.RichEmbed(),
+      prefix
+
+  if (message.startsWith('darnell ')) prefix = 'darnell '
+  if (message.startsWith('d ')) prefix = 'd '
+  if (message.startsWith('. ')) prefix = '. '
+
+  if (prefix) {
+    const command = message.replace(prefix, ''),
         splitMessage = command.trim().split(' ')
-        
+
     if (command.startsWith('film'))
       films.fetchFilmData(client, richEmbed, msg, splitMessage, movieKey)
 

@@ -1,5 +1,6 @@
 exports.help = (richEmbed, msg) => {
   const commands = `
+    **darnell, d, or . **
   - _help_
   - vote + *your inquiry*
   - cat fact
