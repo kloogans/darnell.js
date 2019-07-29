@@ -29,18 +29,18 @@ client.on('message', msg => {
       command = message.replace('darnell ', ''),
       richEmbed = new Discord.RichEmbed()
 
-  if (message.includes('darnell crypto')) {
+  if (command.startsWith('crypto')) {
     const splitCommand = command.trim().split(' ')
     crypto.fetchCryptoPrice(richEmbed, msg, splitCommand[1])
-  } else if (message.includes('darnell film')) {
+  } else if (command.startsWith('film')) {
     let splitMessage = message.trim().split(' '),
         film = splitMessage.slice(2, splitMessage.length).join('-')
     films.fetchFilmData(richEmbed, msg, film, movieKey, emojis)
-  } else if (message.includes('darnell vote')) {
+  } else if (command.startsWith('vote')) {
     vote.handleVote(richEmbed, msg, command)
   } else if (command === 'cat fact') {
     getMedia.fetchCatFact(msg)
-  } else if ( command === 'dad joke' ) {
+  } else if (command === 'dad joke') {
     jokes.fetchDadJoke(msg)
   } else if (command === 'dank meme') {
     getMedia.fetchRedditDankMeme(richEmbed, msg)
