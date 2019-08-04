@@ -9,7 +9,7 @@ const token = process.env.DISCORD_TOKEN,
       Discord = require('discord.js'),
       fetch = require('node-fetch'),
       client = new Discord.Client(),
-      movieKey = process.env.FILM_TOKEN
+      filmKey = process.env.FILM_TOKEN
 
 client.login(token)
 client.on('ready', () => console.log('running'))
@@ -27,7 +27,7 @@ client.on('message', msg => {
         splitMessage = command.trim().split(' ')
 
     if (command.startsWith('film'))
-      films.fetchFilmData(client, richEmbed, msg, splitMessage, movieKey)
+      films.fetchFilmData(client, richEmbed, msg, splitMessage, filmKey)
 
     if (command.startsWith('crypto'))
       crypto.fetchCryptoPrice(richEmbed, msg, splitMessage[1])
