@@ -5,6 +5,7 @@ const token = process.env.DISCORD_TOKEN,
       films = require('./commands/films'),
       jokes = require('./commands/jokes'),
       vote = require('./commands/vote'),
+      status = require('./commands/downDetect'),
       info = require('./commands/info'),
       Discord = require('discord.js'),
       fetch = require('node-fetch'),
@@ -33,6 +34,7 @@ client.on('message', msg => {
       crypto.fetchCryptoPrice(richEmbed, msg, splitMessage[1])
 
     if (command.startsWith('vote')) vote.handleVote(richEmbed, msg, command)
+    if (command.startsWith('check')) status.downDetect(richEmbed, msg, command)
     if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
     if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
     if (command === 'cat facts') getMedia.fetchCatFact(msg)
