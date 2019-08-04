@@ -37,7 +37,7 @@ client.on('message', msg => {
     if (command.startsWith('check')) status.downDetect(richEmbed, msg, command)
     if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
     if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
-    if (command === 'cat facts') getMedia.fetchCatFact(msg)
+    if (command === 'cat fact') getMedia.fetchCatFact(msg)
     if (command === 'dad joke') jokes.fetchDadJoke(msg)
     if (command === 'help') info.help(richEmbed, msg)
   }
