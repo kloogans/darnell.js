@@ -9,6 +9,7 @@ exports.help = (richEmbed, msg) => {
   - twitter
   - film + *your movie*
   - crypto + *your cryptocurrecy*
+  - check + *your website url*
   `
   const message = richEmbed.setTitle(`:fire: **yo i'm darnell** :fire:`)
                            .setImage('https://imgur.com/fBidC4N.jpg')
