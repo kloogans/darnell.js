@@ -1,12 +1,14 @@
-const isReachable = require('is-reachable')
+const fetch = require('node-fetch')
 
 exports.downDetect = async (richEmbed, msg, command) => {
   const url = command.trim().split(' ').pop(),
-        isUp = await isReachable(url)
+        res = await fetch(`https://isitdown.site/api/v3/${url}`),
+        json = await res.json(),
+        isDown = json.isitdown
 
   let message
 
-  if (isUp) {
+  if (!isDown) {
     message = richEmbed.setTitle(`${url} is up`)
                        .setThumbnail('https://imgur.com/fATQP1I.png')
                        .setColor('#3BCC58')
