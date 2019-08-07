@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-exports.fetchFilmData = async (client, richEmbed, msg, film, movieKey) => {
+exports.fetchTVData = async (client, richEmbed, msg, film, movieKey) => {
   const emojis = {
     rotten: (client.emojis.get('604098654445502472')).toString(),
     metacritic: (client.emojis.get('604099414017048683')).toString(),
