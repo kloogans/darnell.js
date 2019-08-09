@@ -23,9 +23,11 @@ client.on('message', msg => {
   if (message.startsWith('d ')) prefix = 'd '
   if (message.startsWith('. ')) prefix = '. '
 
+  if (message === 'darnell' || message === 'd' || message === '.') msg.channel.send('what lol')
+
   if (prefix) {
     const command = message.replace(prefix, ''),
-        splitMessage = command.trim().split(' ')
+          splitMessage = command.trim().split(' ')
 
     if (command.startsWith('film'))
       films.fetchFilmData(client, richEmbed, msg, splitMessage, filmKey)
