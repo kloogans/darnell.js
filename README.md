@@ -68,7 +68,4 @@ FILM_TOKEN = <YOUR_TOKEN>
 Start Darnell:
 `node .`
 
-
-
-
-<!-- ![Darnell Logo](https://images-ext-2.discordapp.net/external/-JmTLkN7zT_eZSkQMZ9sFiOSzVNZjiJgy60RJgYtK1g/https/imgur.com/fBidC4N.jpg) -->
+![Darnell Logo](https://images-ext-2.discordapp.net/external/-JmTLkN7zT_eZSkQMZ9sFiOSzVNZjiJgy60RJgYtK1g/https/imgur.com/fBidC4N.jpg)
