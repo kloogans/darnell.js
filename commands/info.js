@@ -8,6 +8,7 @@ exports.help = (richEmbed, msg) => {
   - dank meme
   - twitter
   - film + *your movie*
+  - tv + *your show*
   - crypto + *your cryptocurrecy*
   - check + *your website url*
   `
