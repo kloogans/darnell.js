@@ -23,6 +23,9 @@ Darnell can be invoked by using one of three prefixes:
 - crypto + *your cryptocurrecy*
 - check + *your website url*
 
+
+![Darnell Help](https://media.giphy.com/media/Jrw7FDaVVOzpLXsN1y/giphy.gif)
+
 ## Examples
 `darnell help`
 
@@ -37,6 +40,7 @@ Darnell can be invoked by using one of three prefixes:
 `. tv angry beavers`
 
 
+![Darnell Vote](https://media.giphy.com/media/YSlCzh6zd3tQqdqcWs/giphy.gif)
 ## Installation
 
 Clone this repo:
@@ -67,6 +71,4 @@ Start Darnell:
 `node .`
 
 
-
-
-<!-- ![Darnell Logo](https://images-ext-2.discordapp.net/external/-JmTLkN7zT_eZSkQMZ9sFiOSzVNZjiJgy60RJgYtK1g/https/imgur.com/fBidC4N.jpg) -->
+![Darnell Logo](https://images-ext-2.discordapp.net/external/-JmTLkN7zT_eZSkQMZ9sFiOSzVNZjiJgy60RJgYtK1g/https/imgur.com/fBidC4N.jpg)
