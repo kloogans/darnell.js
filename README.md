@@ -1,17 +1,17 @@
 # Darnell.js
 ![Darnell Film](https://media.giphy.com/media/THUEXowAvmoVTt2Yix/giphy.gif)
 
-[Invocations](#invocations) | [Commands](#commands) | [Examples](#examples)
+[Invocations](#invocations) | [Commands](#commands) | [Examples](#examples) | [Installation](#installation)
 
 Darnell is a multipurpose, Node powered Discord bot that can be used to fetch
 data about films, tv shows, cryptocurrencies, reddit posts, and more.
 
-### Invocations
+## Invocations
 Darnell can be invoked by using one of three prefixes:
 `darnell`, `d`, or `.` followed by your command.
 
 
-### Commands
+## Commands
 - _help_
 - vote + *your inquiry*
 - cat fact
@@ -23,7 +23,7 @@ Darnell can be invoked by using one of three prefixes:
 - crypto + *your cryptocurrecy*
 - check + *your website url*
 
-### Examples
+## Examples
 `darnell help`
 
 `d film ready to rumble`
@@ -35,6 +35,37 @@ Darnell can be invoked by using one of three prefixes:
 `d cat fact`
 
 `. tv angry beavers`
+
+
+## Installation
+
+Clone this repo:
+`git clone https://github.com/notjamesobrien/darnell.js.git`
+
+Move into the directory:
+`cd darnell.js`
+
+Install dependencies:
+`npm install`
+
+You'll need to create a new application and bot on the [Discord Developers page](https://discordapp.com/developers/applications/) so we can get an API token for Darnell.
+[This guide](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
+explains how to set up a Discord bot with your server.
+
+You'll also need an API for the film database. You can get a key [here](http://www.omdbapi.com/apikey.aspx).
+
+Once you have your tokens, create a .env file:
+`touch .env` or just create the file in your IDE.
+
+In your `.env` file, add your tokens:
+```
+DISCORD_TOKEN = <YOUR_TOKEN>
+FILM_TOKEN = <YOUR_TOKEN>
+```
+
+Start Darnell:
+`node .`
+
 
 
 
