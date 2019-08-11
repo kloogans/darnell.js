@@ -10,7 +10,6 @@ data about films, tv shows, cryptocurrencies, reddit posts, and more.
 Darnell can be invoked by using one of three prefixes:
 `darnell`, `d`, or `.` followed by your command.
 
-
 ## Commands
 - _help_
 - vote + *your inquiry*
@@ -22,6 +21,8 @@ Darnell can be invoked by using one of three prefixes:
 - tv + *your show*
 - crypto + *your cryptocurrecy*
 - check + *your website url*
+
+![Darnell Help](https://media.giphy.com/media/Jrw7FDaVVOzpLXsN1y/giphy.gif)
 
 ## Examples
 `darnell help`
@@ -36,6 +37,7 @@ Darnell can be invoked by using one of three prefixes:
 
 `. tv angry beavers`
 
+![Darnell Vote](https://media.giphy.com/media/YSlCzh6zd3tQqdqcWs/giphy.gif)
 
 ## Installation
 
