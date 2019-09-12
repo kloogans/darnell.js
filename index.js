@@ -6,6 +6,7 @@ const token = process.env.DISCORD_TOKEN,
       crypto = require('./commands/crypto'),
       films = require('./commands/films'),
       jokes = require('./commands/jokes'),
+      brain = require('./commands/brain'),
       vote = require('./commands/vote'),
       info = require('./commands/info'),
       Discord = require('discord.js'),
@@ -14,6 +15,7 @@ const token = process.env.DISCORD_TOKEN,
       client = new Discord.Client(),
       filmKey = process.env.FILM_TOKEN
 
+console.log('wtf')
 client.login(token)
 client.on('ready', () => console.log('running'))
 client.on('message', msg => {
@@ -37,6 +39,10 @@ client.on('message', msg => {
     if (command.startsWith('check')) status.downDetect(richEmbed, msg, command)
     if (command.startsWith('vote')) vote.handleVote(richEmbed, msg, command)
     if (command.startsWith('spotify')) spotify.handlePlaylist(richEmbed, msg)
+    if (command.startsWith('brain')) {
+      console.log('brain running')
+      brain.brainMe(richEmbed, msg, command)
+    }
     if (command === 'dank meme') getMedia.fetchRedditDankMeme(richEmbed, msg)
     if (command === 'twitter') getMedia.fetchRedditWPT(richEmbed, msg)
     if (command === 'cat fact') getMedia.fetchCatFact(msg)
