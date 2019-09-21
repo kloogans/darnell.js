@@ -11,8 +11,9 @@ const token = process.env.DISCORD_TOKEN,
   info = require("./commands/info"),
   Discord = require("discord.js"),
   fetch = require("node-fetch"),
-  tv = require("./commands/tv")
-;(client = new Discord.Client()), (filmKey = process.env.FILM_TOKEN)
+  tv = require("./commands/tv"),
+  client = new Discord.Client(),
+  filmKey = process.env.FILM_TOKEN
 
 client.login(token)
 client.on("ready", () => console.log("running"))
