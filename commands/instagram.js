@@ -20,29 +20,48 @@ Followers - Following
 `
     const message = richEmbed
       .addField(res.user.full_name, `@${res.user.username}`, true)
-      .addField("Engagement Rate", `**${res.user.totalEngagementRate}%**`, true)
+      .addField(
+        "Engagement Rate",
+        `**${
+          res.user.is_private ? ":lock:" : res.user.totalEngagementRate + "%"
+        }**`,
+        true
+      )
       .addField("Followers", formatNum(res.user.followed_by), true)
       .addField("Following", formatNum(res.user.following), true)
       .addField(
         "Average Likes",
-        `:heart: ${formatNum(res.user.likes_avg)}`,
+        `${
+          res.user.is_private
+            ? ":lock:"
+            : ":heart: " + formatNum(res.user.likes_avg)
+        }`,
         true
       )
       .addField(
         "Average Comments",
-        `:speech_balloon: ${formatNum(res.user.comments_avg)}`,
+        `${
+          res.user.is_private
+            ? ":lock:"
+            : ":speech_balloon: " + formatNum(res.user.comments_avg)
+        }`,
         true
       )
       .addField(
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         `[See More](https://instagram.com/${res.user.username})`
       )
+      .setFooter(
+        res.user.is_private
+          ? `${res.user.full_name} has a private account`
+          : `public account`
+      )
       .setThumbnail(res.user.profile_picture)
       .setColor("#eb15a7")
 
     msg.channel.send(message)
   } catch (e) {
-    msg.channel.send(`Can't find that user. Try something else lol.`)
+    msg.channel.send(`Can't find that user. Try something else.`)
     console.error(`User ${user} doesn't exist.`)
   }
 }
