@@ -6,7 +6,7 @@ const formatNum = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 exports.getUser = async (richEmbed, msg, username) => {
   const user = username[username.length - 1]
-  const url = `http://167.99.121.93:5000/instagram?username=${user}`
+  const url = `http://localhost:5000/instagram?username=${user}`
   try {
     const data = await fetch(url)
     //   json = await data.json()
