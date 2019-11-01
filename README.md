@@ -20,7 +20,7 @@ Darnell can be invoked by using one of three prefixes:
 - film + *your movie*
 - tv + *your show*
 - crypto + *your cryptocurrecy*
-- check + *your website url*
+- instagram + *your username*
 
 ![Darnell Help](https://media.giphy.com/media/Jrw7FDaVVOzpLXsN1y/giphy.gif)
 
