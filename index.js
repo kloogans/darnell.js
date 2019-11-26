@@ -45,6 +45,7 @@ client.on("message", msg => {
     if (command.startsWith("instagram") || command.startsWith("ig"))
       instagram.getUser(richEmbed, msg, splitMessage)
     if (command === "dank meme") getMedia.fetchRedditDankMeme(richEmbed, msg)
+    if (command === "bike") getMedia.fetchRedditBike(richEmbed, msg)
     if (command === "twitter") getMedia.fetchRedditWPT(richEmbed, msg)
     if (command === "cat fact") getMedia.fetchCatFact(msg)
     if (command === "dad joke") jokes.fetchDadJoke(msg)
