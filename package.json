@@ -17,6 +17,7 @@
     "jquery": "^3.4.1",
     "node-fetch": "^2.6.0",
     "request": "^2.88.0",
-    "spotify-web-api-node": "^4.0.0"
+    "spotify-web-api-node": "^4.0.0",
+    "twit": "^2.2.11"
   }
 }

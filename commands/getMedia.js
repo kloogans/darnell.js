@@ -1,5 +1,6 @@
 const fetch = require("node-fetch")
 
+
 exports.fetchRedditDankMeme = async (richEmbed, msg) => {
   const url = `https://www.reddit.com/r/dankmemes.json?sort=controversial&t=week&type=link`
   try {
@@ -63,3 +64,5 @@ exports.fetchCatFact = async msg => {
     console.error("Cat Fact Error: ", e)
   }
 }
+
+
