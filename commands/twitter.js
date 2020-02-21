@@ -10,7 +10,7 @@ const T = new Twit({
 
 exports.fetchTwitterProfile = (richEmbed, msg, username) => {
     T.get('users/lookup', { screen_name: username[1] }, (err, data, response) => {
-        console.log('user data: ', data[0])
+        // console.log('user data: ', data[0])
         const res = data[0]
         const message = richEmbed
             .setURL(`https://twitter.com/${res.screen_name}`)
@@ -31,6 +31,7 @@ exports.fetchTwitterProfile = (richEmbed, msg, username) => {
 
 
 exports.fetchTwitterLatestPost = (richEmbed, msg, username) => {
+    console.log('fetching post')
     T.get('statuses/user_timeline', { screen_name: username[1], include_rts: false, exclude_replies: true, count: 1 }, (err, data, response) => {
         msg.channel.send(`https://twitter.com/${username[1]}/status/${data[0].id_str}`)
     })

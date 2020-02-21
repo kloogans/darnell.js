@@ -52,7 +52,7 @@ client.on("message", msg => {
       tv.fetchTVData(client, richEmbed, msg, splitMessage)
     if (command.startsWith("check")) status.downDetect(richEmbed, msg, command)
     if (command.startsWith("vote")) vote.handleVote(richEmbed, msg, command)
-    if (command.startsWith("spotify")) spotify.handlePlaylist(richEmbed, msg)
+    // if (command.startsWith("spotify")) spotify.handlePlaylist(richEmbed, msg)
     if (command.startsWith("instagram") || command.startsWith("ig"))
       instagram.getUser(richEmbed, msg, splitMessage)
     if ((command.startsWith("twitter") && !command.endsWith("-last")) || (command.startsWith("t") && !command.endsWith("-last")))
