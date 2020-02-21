@@ -1,17 +1,20 @@
 const fetch = require("node-fetch")
-
+const time = require('../utils/time')
+const moment = require('moment')
 const formatNum = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 // 167.99.121.93
 
+
 exports.getUser = async (richEmbed, msg, username) => {
+  const currTime = time.getCurrDateTime()
   const user = username[username.length - 1]
-  const url = `http://localhost:5000/instagram?username=${user}`
+  const url = `https://api.stellr.digital/instagram?username=${user}`
   try {
     const data = await fetch(url)
-    //   json = await data.json()
     const res = await data.json()
-    console.log(res.user)
+
+    console.log(`${currTime}: Instagram user lookup - @${res.user.username}`)
 
     const header = `
 @${res.user.username}
@@ -23,7 +26,7 @@ Followers - Following
       .addField(
         "Engagement Rate",
         `**${
-          res.user.is_private ? ":lock:" : res.user.totalEngagementRate + "%"
+        res.user.is_private ? ":lock:" : res.user.totalEngagementRate + "%"
         }**`,
         true
       )
@@ -32,18 +35,18 @@ Followers - Following
       .addField(
         "Average Likes",
         `${
-          res.user.is_private
-            ? ":lock:"
-            : ":heart: " + formatNum(res.user.likes_avg)
+        res.user.is_private
+          ? ":lock:"
+          : ":heart: " + formatNum(res.user.likes_avg)
         }`,
         true
       )
       .addField(
         "Average Comments",
         `${
-          res.user.is_private
-            ? ":lock:"
-            : ":speech_balloon: " + formatNum(res.user.comments_avg)
+        res.user.is_private
+          ? ":lock:"
+          : ":speech_balloon: " + formatNum(res.user.comments_avg)
         }`,
         true
       )
@@ -62,6 +65,6 @@ Followers - Following
     msg.channel.send(message)
   } catch (e) {
     msg.channel.send(`Can't find that user. Try something else.`)
-    console.error(`User ${user} doesn't exist.`)
+    console.error(`${currTime}: Instagram lookup - ${user} doesn't exist.`)
   }
 }
